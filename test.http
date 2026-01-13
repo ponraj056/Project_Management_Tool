@@ -1,0 +1,210 @@
+
+### VS Code REST Client Testing File
+### Install "REST Client" extension to use this file
+
+@baseUrl = http://localhost:5000/api
+@token = YOUR_TOKEN_HERE
+
+### Health Check
+GET {{baseUrl}}/health
+
+### ===========================
+### AUTHENTICATION
+### ===========================
+
+### Register Admin
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Admin User",
+  "email": "admin@example.com",
+  "password": "admin123",
+  "role": "Admin"
+}
+
+### Register Member 1
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "john123",
+  "role": "Member"
+}
+
+### Register Member 2
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane@example.com",
+  "password": "jane123",
+  "role": "Member"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin123"
+}
+
+### Get Current User
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}
+
+### ===========================
+### PROJECTS
+### ===========================
+
+### Create Project
+POST {{baseUrl}}/projects
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "E-Commerce Platform",
+  "description": "Build a comprehensive e-commerce platform with modern features"
+}
+
+### Get All Projects
+GET {{baseUrl}}/projects
+Authorization: Bearer {{token}}
+
+### Get Single Project (replace PROJECT_ID)
+GET {{baseUrl}}/projects/PROJECT_ID
+Authorization: Bearer {{token}}
+
+### Update Project (replace PROJECT_ID)
+PUT {{baseUrl}}/projects/PROJECT_ID
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "E-Commerce Platform v2",
+  "description": "Enhanced e-commerce platform with AI recommendations"
+}
+
+### Get Project Analytics (replace PROJECT_ID)
+GET {{baseUrl}}/projects/PROJECT_ID/analytics
+Authorization: Bearer {{token}}
+
+### Delete Project (replace PROJECT_ID)
+DELETE {{baseUrl}}/projects/PROJECT_ID
+Authorization: Bearer {{token}}
+
+### ===========================
+### TASKS
+### ===========================
+
+### Create Task (replace PROJECT_ID)
+POST {{baseUrl}}/tasks/projects/PROJECT_ID/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Design Database Schema",
+  "description": "Create MongoDB schemas for all collections with proper indexes",
+  "status": "Todo",
+  "priority": "High",
+  "dueDate": "2024-02-15"
+}
+
+### Create Task with Assignment (replace PROJECT_ID and USER_ID)
+POST {{baseUrl}}/tasks/projects/PROJECT_ID/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Implement Authentication",
+  "description": "Set up JWT authentication with refresh tokens",
+  "status": "Todo",
+  "priority": "Critical",
+  "dueDate": "2024-02-10",
+  "assignedTo": "USER_ID"
+}
+
+### Get All Tasks in Project (replace PROJECT_ID)
+GET {{baseUrl}}/tasks/projects/PROJECT_ID/tasks
+Authorization: Bearer {{token}}
+
+### Get Single Task (replace TASK_ID)
+GET {{baseUrl}}/tasks/TASK_ID
+Authorization: Bearer {{token}}
+
+### Update Task (replace TASK_ID)
+PUT {{baseUrl}}/tasks/TASK_ID
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Design Database Schema - Updated",
+  "description": "Create MongoDB schemas with advanced indexing strategies",
+  "priority": "Critical"
+}
+
+### Update Task Status (replace TASK_ID)
+PATCH {{baseUrl}}/tasks/TASK_ID/status
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "In Progress"
+}
+
+### Assign Task to User (replace TASK_ID and USER_ID)
+PATCH {{baseUrl}}/tasks/TASK_ID/assign
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": "USER_ID"
+}
+
+### Unassign Task (replace TASK_ID)
+PATCH {{baseUrl}}/tasks/TASK_ID/assign
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": null
+}
+
+### Delete Task (replace TASK_ID)
+DELETE {{baseUrl}}/tasks/TASK_ID
+Authorization: Bearer {{token}}
+
+### ===========================
+### COMMENTS
+### ===========================
+
+### Create Comment (replace TASK_ID)
+POST {{baseUrl}}/comments/tasks/TASK_ID/comments
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "message": "Started working on this task. Will update progress shortly."
+}
+
+### Get All Comments for Task (replace TASK_ID)
+GET {{baseUrl}}/comments/tasks/TASK_ID/comments
+Authorization: Bearer {{token}}
+
+### Update Comment (replace COMMENT_ID)
+PUT {{baseUrl}}/comments/COMMENT_ID
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "message": "Updated: Task is 50% complete. Need one more day."
+}
+
+### Delete Comment (replace COMMENT_ID)
+DELETE {{baseUrl}}/comments/COMMENT_ID
+Authorization: Bearer {{token}}
