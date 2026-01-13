@@ -1,4 +1,4 @@
-# Project Management Tool - Backend API
+# Project Management Tool 
 
 A comprehensive project management tool backend built with Node.js, Express.js, MongoDB, and JWT Authentication.
 
@@ -30,7 +30,7 @@ A comprehensive project management tool backend built with Node.js, Express.js, 
 
 ```
 project-management-tool/
-├── src/
+├── backend/
 │   ├── config/
 │   │   └── database.js          # MongoDB connection
 │   ├── models/
