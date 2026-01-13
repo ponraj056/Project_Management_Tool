@@ -287,7 +287,7 @@ Built with clean, maintainable code following industry best practices:
 
 ## 📄 License
 
-ISC
+
 
 ---
 
