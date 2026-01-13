@@ -308,4 +308,4 @@ Request → Middleware → Controller
 
 ---
 
-**Architecture designed for maintainability, security, and scalability** 🏗️
+**Architecture designed for maintainability, security, and scalability 🏗️
