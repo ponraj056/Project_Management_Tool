@@ -5,17 +5,17 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         CLIENT APPLICATIONS                         │
-│         (Postman, VS Code REST Client, Frontend Apps)              │
+│         (Postman, VS Code REST Client, Frontend Apps)               │
 └────────────────────────────────┬────────────────────────────────────┘
                                  │
                                  │ HTTP/HTTPS
                                  │
                                  ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                        EXPRESS.JS SERVER                            │
-│                      (Port 5000 - Node.js)                         │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
+┌───────────────────────────────────────────────────────────────────┐
+│                        EXPRESS.JS SERVER                          │
+│                      (Port 5000 - Node.js)                        │
+├──────────────────────────────────────────────────────────────────-┤
+│                                                                   │
 │  ┌──────────────────────────────────────────────────────────────┐ │
 │  │                    MIDDLEWARE LAYER                          │ │
 │  ├──────────────────────────────────────────────────────────────┤ │
@@ -23,36 +23,36 @@
 │  │  • JWT Authentication    • Error Handler                     │ │
 │  │  • Role Authorization    • Request Validation                │ │
 │  └──────────────────────────────────────────────────────────────┘ │
-│                                                                     │
+│                                                                   │
 │  ┌──────────────────────────────────────────────────────────────┐ │
 │  │                     ROUTES LAYER                             │ │
 │  ├──────────────────────────────────────────────────────────────┤ │
-│  │  /api/auth          → Auth Routes                           │ │
-│  │  /api/projects      → Project Routes                        │ │
-│  │  /api/tasks         → Task Routes                           │ │
-│  │  /api/comments      → Comment Routes                        │ │
-│  │  /api/health        → Health Check                          │ │
+│  │  /api/auth          → Auth Routes                            │ │
+│  │  /api/projects      → Project Routes                         │ │
+│  │  /api/tasks         → Task Routes                            │ │
+│  │  /api/comments      → Comment Routes                         │ │
+│  │  /api/health        → Health Check                           │ │
 │  └──────────────────────────────────────────────────────────────┘ │
-│                                                                     │
+│                                                                   │
 │  ┌──────────────────────────────────────────────────────────────┐ │
 │  │                   CONTROLLERS LAYER                          │ │
 │  ├──────────────────────────────────────────────────────────────┤ │
-│  │  • authController      (register, login, getMe)             │ │
-│  │  • projectController   (CRUD + analytics)                   │ │
-│  │  • taskController      (CRUD + assign + status)             │ │
-│  │  • commentController   (CRUD)                               │ │
+│  │  • authController      (register, login, getMe)              │ │
+│  │  • projectController   (CRUD + analytics)                    │ │
+│  │  • taskController      (CRUD + assign + status)              │ │
+│  │  • commentController   (CRUD)                                │ │
 │  └──────────────────────────────────────────────────────────────┘ │
-│                                                                     │
+│                                                                   │
 │  ┌──────────────────────────────────────────────────────────────┐ │
 │  │                     MODELS LAYER                             │ │
 │  ├──────────────────────────────────────────────────────────────┤ │
-│  │  • User Model      (name, email, password, role)            │ │
-│  │  • Project Model   (name, description, owner, members)      │ │
-│  │  • Task Model      (title, status, priority, assignedTo)    │ │
-│  │  • Comment Model   (task, user, message)                    │ │
+│  │  • User Model      (name, email, password, role)             │ │
+│  │  • Project Model   (name, description, owner, members)       │ │
+│  │  • Task Model      (title, status, priority, assignedTo)     │ │
+│  │  • Comment Model   (task, user, message)                     │ │
 │  └──────────────────────────────────────────────────────────────┘ │
-│                                                                     │
-└────────────────────────────────┬────────────────────────────────────┘
+│                                                                   │
+└────────────────────────────────┬──────────────────────────────────┘
                                  │
                                  │ Mongoose ODM
                                  │
